@@ -1,3 +1,5 @@
+export const revalidate = 60
+
 function HomePage() {
   return (
     <div>
