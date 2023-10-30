@@ -1,3 +1,7 @@
-import { NewClient } from "@/components/NewClient"
+import NewClient from '@/app/clientes/nuevo/page'
 
-export default NewClient
+export default NewClient;
+
+/* import { NewClient } from "@/components/NewClient"
+
+export default NewClient */
