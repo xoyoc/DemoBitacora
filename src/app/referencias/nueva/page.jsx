@@ -5,14 +5,14 @@ import { useEffect, useState } from "react"
 
 export default function NewReferencia({params}) {
   const router = useRouter()
-  const [refernecia, setRefernecia] = useState(" ")
+  const [referencia, setRefernecia] = useState(" ")
   const [container, setContainer] = useState(" ")
   useEffect(() => {
     if(params.id){
       fetch(`/api/referencias/${params.id}`)
         .then(res => res.json())
         .then(data => {
-          setRefernecia(data.refernecia)
+          setRefernecia(data.referencia)
           setContainer(data.container)
         })
     }
@@ -23,7 +23,7 @@ export default function NewReferencia({params}) {
     if(params.id){
       const res = await fetch(`/api/referencias/${params.id}`,{
         method: 'PUT',
-        body: JSON.stringify({refernecia, container}),
+        body: JSON.stringify({referencia, container}),
         headers: {
           'Contest-Type': 'applications/json'
         }          
@@ -32,7 +32,7 @@ export default function NewReferencia({params}) {
     }else{
       const res = await fetch('/api/referencias',{
         method: 'POST',
-        body: JSON.stringify({refernecia, container}),
+        body: JSON.stringify({referencia, container}),
         headers: {
           'Contest-Type': 'applications/json'
         }
@@ -53,11 +53,11 @@ export default function NewReferencia({params}) {
             <input 
               placeholder="Referencia" 
               type="text" 
-              name="refernecia" 
-              id="refernecia" 
+              name="referencia" 
+              id="referencia" 
               className="block flex-1 border-0 py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"
               onChange={(e) => setRefernecia(e.target.value)}
-              value={refernecia}
+              value={referencia}
             />
           </div>
           <div className="mt-5">

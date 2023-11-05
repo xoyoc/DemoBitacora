@@ -7,10 +7,10 @@ export async function GET() {
 }
 
 export async function POST(request) {
-    const { refernecia, container } = await request.json()
+    const { referencia, container } = await request.json()
     const newReferencia = await prisma.referencias.create({
         data: {
-            refernecia,
+            referencia,
             container
         },
     });

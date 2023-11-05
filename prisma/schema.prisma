@@ -11,9 +11,10 @@ datasource db {
 }
 
 model Referencias {
-  id         Int    @id @default(autoincrement())
-  refernecia String @unique
+  id         Int       @id @default(autoincrement())
+  referencia String    @unique
   container  String
+  Bitacora   Bitacora?
 }
 
 model Clientes {
@@ -25,18 +26,20 @@ model Clientes {
 }
 
 model Bitacora {
-  id             Int      @id @default(autoincrement())
+  id             Int         @id @default(autoincrement())
   tipooperaqcion String
-  client         Clientes @relation(fields: [idclient], references: [id])
-  idclient       Int      @unique
-  user           User     @relation(fields: [userId], references: [id])
-  userId         Int      @unique
-  revalidacion   DateTime? @updatedAt
-  eta            DateTime? @updatedAt
-  previo         DateTime? @updatedAt
-  glosa          DateTime? @updatedAt
-  datepay        DateTime? @updatedAt
-  datemodu       DateTime? @updatedAt
+  referencia     Referencias @relation(fields: [idreferencia], references: [id])
+  idreferencia   Int         @unique
+  client         Clientes    @relation(fields: [idclient], references: [id])
+  idclient       Int         @unique
+  user           User        @relation(fields: [userId], references: [id])
+  userId         Int         @unique
+  revalidacion   DateTime?   @updatedAt
+  eta            DateTime?   @updatedAt
+  previo         DateTime?   @updatedAt
+  glosa          DateTime?   @updatedAt
+  datepay        DateTime?   @updatedAt
+  datemodu       DateTime?   @updatedAt
   folioinvoice   String?
   cuentagastos   String?
 }
@@ -47,4 +50,10 @@ model User {
   name     String
   role     String
   Bitacora Bitacora?
+}
+
+model MacaraReferencia {
+  id            Int    @id @default(autoincrement())
+  antreferencia String
+  desreferencia String
 }

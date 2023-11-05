@@ -4,7 +4,7 @@ export default function ListReferen({referencia}){
 
     return (
         <tr>
-            <td className="border border-slate-800 text-center">{referencia.refernecia}</td>
+            <td className="border border-slate-800 text-center">{referencia.referencia}</td>
             <td className="border border-slate-800 text-center">{referencia.container}</td>
             <td className="border border-slate-800 flex justify-around">
             <Link href={`/referencias/edit/${referencia.id}`}>
