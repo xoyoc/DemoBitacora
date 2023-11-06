@@ -8,7 +8,7 @@ async function contadorReferencia() {
 async function Referencia() {
     const contadorRef = await contadorReferencia()
     const contador = contadorRef.length + 1
-    const referencia = 'LCLF'+'00'+contador+'/23'
+    const referencia = 'LCLF'+'000'+contador+'/23'
   return (
     <div>
         <input 
