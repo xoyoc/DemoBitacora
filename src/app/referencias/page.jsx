@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 import ListReferen from "@/components/ListReferen"
 
@@ -5,7 +7,6 @@ async function loadReferencia() {
   const res = await fetch('http://localhost:3000/api/referencias')
   return await res.json()
 }
-
 
 export const dynamic = 'force-dynamic'
 

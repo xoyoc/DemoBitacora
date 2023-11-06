@@ -1,9 +1,10 @@
 "use client"
 
+import Referencia from "@/components/Referencia"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
-export default function NewReferencia({params}) {
+export default async function NewReferencia({params}) {
   const router = useRouter()
   const [referencia, setRefernecia] = useState(" ")
   const [container, setContainer] = useState(" ")
@@ -50,7 +51,10 @@ export default function NewReferencia({params}) {
           onSubmit={onSubmit}
         >
           <div className="">
-            <input 
+            <Referencia 
+              // onChange={(e) => setRefernecia(e.target.value)}
+            />
+{/*             <input 
               placeholder="Referencia" 
               type="text" 
               name="referencia" 
@@ -58,7 +62,8 @@ export default function NewReferencia({params}) {
               className="block flex-1 border-0 py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"
               onChange={(e) => setRefernecia(e.target.value)}
               value={referencia}
-            />
+              disabled
+            /> */}
           </div>
           <div className="mt-5">
             <input 
