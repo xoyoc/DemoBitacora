@@ -5,10 +5,16 @@ async function contadorReferencia() {
     return await res.json()
   }
 
+async function mascaraReferencia() {
+  const resp = await fetch('http://localhost:3000/api/mascarareferencia/1')
+  return await resp.json()
+}
+
 async function Referencia() {
+    const masrefe = await mascaraReferencia()
     const contadorRef = await contadorReferencia()
     const contador = contadorRef.length + 1
-    const referencia = 'LCLF'+'000'+contador+'/23'
+    const referencia = masrefe.antreferencia + contador.toString().padStart(4,'0') + masrefe.desreferencia
   return (
     <div>
         <input 

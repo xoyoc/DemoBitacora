@@ -53,7 +53,7 @@ model User {
   Bitacora Bitacora?
 }
 
-model MacaraReferencia {
+model MascaraReferencia {
   id            Int    @id @default(autoincrement())
   antreferencia String
   desreferencia String
