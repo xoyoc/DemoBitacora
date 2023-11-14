@@ -13,6 +13,7 @@ datasource db {
 model Referencias {
   id         Int       @id @default(autoincrement())
   referencia String    @unique
+  pedimento  String    @unique
   container  String
   Bitacora   Bitacora?
 }

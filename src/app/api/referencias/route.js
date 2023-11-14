@@ -11,6 +11,7 @@ export async function POST(request) {
     const newReferencia = await prisma.referencias.create({
         data: {
             referencia,
+            pedimento,
             container
         },
     });

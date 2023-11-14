@@ -1,12 +1,14 @@
 "use client"
 
 import Referencia from "@/components/Referencia"
+import Pedimento from "@/components/Pedimento"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 export default async function NewReferencia({params}) {
   const router = useRouter()
   const [referencia, setRefernecia] = useState(" ")
+  const [pedimento, setPedimento] = useState(" ")
   const [container, setContainer] = useState(" ")
   useEffect(() => {
     if(params.id){
@@ -14,6 +16,7 @@ export default async function NewReferencia({params}) {
         .then(res => res.json())
         .then(data => {
           setRefernecia(data.referencia)
+          setPedimento(data.pedimento)
           setContainer(data.container)
         })
     }
@@ -24,7 +27,7 @@ export default async function NewReferencia({params}) {
     if(params.id){
       const res = await fetch(`/api/referencias/${params.id}`,{
         method: 'PUT',
-        body: JSON.stringify({referencia, container}),
+        body: JSON.stringify({referencia, pedimento, container}),
         headers: {
           'Contest-Type': 'applications/json'
         }          
@@ -33,7 +36,7 @@ export default async function NewReferencia({params}) {
     }else{
       const res = await fetch('/api/referencias',{
         method: 'POST',
-        body: JSON.stringify({referencia, container}),
+        body: JSON.stringify({referencia, pedimento, container}),
         headers: {
           'Contest-Type': 'applications/json'
         }
@@ -51,19 +54,10 @@ export default async function NewReferencia({params}) {
           onSubmit={onSubmit}
         >
           <div className="">
-            <Referencia 
-              // onChange={(e) => setRefernecia(e.target.value)}
-            />
-{/*             <input 
-              placeholder="Referencia" 
-              type="text" 
-              name="referencia" 
-              id="referencia" 
-              className="block flex-1 border-0 py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"
-              onChange={(e) => setRefernecia(e.target.value)}
-              value={referencia}
-              disabled
-            /> */}
+            <Referencia/>
+          </div>
+          <div className="">
+            <Pedimento/>
           </div>
           <div className="mt-5">
             <input 
