@@ -54,10 +54,10 @@ export default async function NewReferencia({params}) {
           onSubmit={onSubmit}
         >
           <div className="">
-            <Referencia/>
+            <Referencia />
           </div>
           <div className="">
-            <Pedimento/>
+            <Pedimento />
           </div>
           <div className="mt-5">
             <input 
