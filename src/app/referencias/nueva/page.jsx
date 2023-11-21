@@ -7,16 +7,14 @@ import { useEffect, useState } from "react"
 
 export default async function NewReferencia({params}) {
   const router = useRouter()
-  const [referencia, setRefernecia] = useState(" ")
-  const [pedimento, setPedimento] = useState(" ")
-  const [container, setContainer] = useState(" ")
+  //const [referencia, setRefernecia] = useState("")
+  //const [pedimento, setPedimento] = useState("")
+  const [container, setContainer] = useState("")
   useEffect(() => {
     if(params.id){
       fetch(`/api/referencias/${params.id}`)
         .then(res => res.json())
         .then(data => {
-          setRefernecia(data.referencia)
-          setPedimento(data.pedimento)
           setContainer(data.container)
         })
     }

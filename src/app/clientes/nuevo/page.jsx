@@ -5,9 +5,9 @@ import { useEffect, useState } from "react"
 
 export default function NewClient({params}) {
   const router = useRouter()
-  const [name, setName] = useState(" ")
-  const [rfc, setRfc] = useState(" ")
-  const [email, setEmail] = useState(" ")
+  const [name, setName] = useState("")
+  const [rfc, setRfc] = useState("")
+  const [email, setEmail] = useState("")
   useEffect(() => {
     if(params.id){
       fetch(`/api/clientes/${params.id}`)

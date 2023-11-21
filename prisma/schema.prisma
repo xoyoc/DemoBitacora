@@ -27,22 +27,22 @@ model Clientes {
 }
 
 model Bitacora {
-  id             Int         @id @default(autoincrement())
-  tipooperaqcion String
-  referencia     Referencias @relation(fields: [idreferencia], references: [id])
-  idreferencia   Int         @unique
-  client         Clientes    @relation(fields: [idclient], references: [id])
-  idclient       Int         @unique
-  user           User        @relation(fields: [userId], references: [id])
-  userId         Int         @unique
-  revalidacion   DateTime?   @updatedAt
-  eta            DateTime?   @updatedAt
-  previo         DateTime?   @updatedAt
-  glosa          DateTime?   @updatedAt
-  datepay        DateTime?   @updatedAt
-  datemodu       DateTime?   @updatedAt
-  folioinvoice   String?
-  cuentagastos   String?
+  id            Int         @id @default(autoincrement())
+  tipooperacion String
+  referencia    Referencias @relation(fields: [idreferencia], references: [id])
+  idreferencia  Int         @unique
+  client        Clientes    @relation(fields: [idclient], references: [id])
+  idclient      Int         @unique
+  user          User        @relation(fields: [userId], references: [id])
+  userId        Int         @unique
+  revalidacion  DateTime?   @updatedAt
+  eta           DateTime?   @updatedAt
+  previo        DateTime?   @updatedAt
+  glosa         DateTime?   @updatedAt
+  datepay       DateTime?   @updatedAt
+  datemodu      DateTime?   @updatedAt
+  folioinvoice  String?
+  cuentagastos  String?
 }
 
 model User {
